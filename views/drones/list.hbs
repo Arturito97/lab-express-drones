@@ -1,1 +1,32 @@
+<style>
+    body {
+        background-image: url('/images/612056122fba1688f6dc7323bfd21bd6.gif');
+        background-size: 100%;
+        padding: 50px;
+    }
+
+    a { 
+        color: black;
+    }
+
+    button{
+
+    }
+
+</style>
+
+
 <h2>Available drones</h2>
+{{#each dronesFromDB}}
+    <a href="/drones/{{id}}/edit">Edit</a>
+
+    <li>{{name}} |
+    {{propellers}} propellers |
+    {{maxSpeed}} m/s</li>
+
+    <form action="/drones/{{id}}/delete" method="POST">
+        <button type="submit">Delete</button>
+    </form>
+{{/each}}
+
+<a href="/drones/create">Create a drone</a>
